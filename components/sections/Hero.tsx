@@ -255,42 +255,35 @@ export function Hero() {
             <div style={{ position: "absolute", width: "clamp(220px, 30vw, 280px)", height: "clamp(220px, 30vw, 280px)", borderRadius: "50%", border: "1px dashed rgba(96,165,250,0.15)", animation: "spin-slow 15s linear infinite reverse" }} />
 
             {/* Profile Image Container */}
-            <div
-              style={{
-                width: "clamp(180px, 25vw, 220px)",
-                height: "clamp(180px, 25vw, 220px)",
-                borderRadius: "50%",
-                background: "linear-gradient(135deg,#7c3aed,#2563eb)",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                boxShadow: "0 0 50px rgba(124,58,237,0.3), 0 0 100px rgba(124,58,237,0.1)",
-                position: "relative",
-                zIndex: 2,
-                overflow: "hidden",
-                border: "4px solid rgba(255, 255, 255, 0.05)"
-              }}
-            >
-              <Image 
-                src={AreebPic} 
-                alt="Areeb Ali - Full Stack Developer"
-                placeholder="blur"
-                priority
-                loading="eager"
-                style={{
-                  width: "100%",
-                  height: "100%",
-                  objectFit: "cover",
-                  objectPosition: "center top",
-                }}
-              />
-            </div>
+       <div className="self-end lg:col-span-5">
+                     <div className="relative">
+                       {/* Glow effect behind image */}
+                       <div className="absolute inset-0 bg-gradient-to-r from-indigo-500/30 via-purple-500/30 to-pink-500/30 blur-3xl rounded-full"></div>
+                       
+                       {/* Image with gradient fade at bottom */}
+                       <div className="relative z-20 drop-shadow-2xl rounded-2xl overflow-hidden">
+                         <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-60 z-10"></div>
+                         <Image
+                           className="w-12 mx-auto"
+                           src={AreebPic}
+                           alt="Areeb Ali"
+                           priority
+                           style={{
+                             maskImage: "linear-gradient(to bottom, black 80%, transparent 100%)",
+                             WebkitMaskImage: "linear-gradient(to bottom, black 80%, transparent 100%)",
+                             width: '500px',
+                             height:'auto'
+                           }}
+                         />
+                       </div>
+                     </div>
+                   </div>
 
             {/* Floating Badges */}
             {[
-              { text: "🏆 Hackathon Winner", x: -140, y: -100, color: "#fbbf24" },
-              { text: "🔒 NCAI Intern", x: 70, y: -120, color: "#34d399" },
-              { text: "⚡ MERN Stack", x: -120, y: 80, color: "#60a5fa" },
+              { text: "🏆 Hackathon Winner", x: -200, y:15, color: "#fbbf24" },
+              { text: "🔒 NCAI Intern", x: 70, y: -20, color: "#34d399" },
+              { text: "⚡ MERN Stack", x: -230, y: 80, color: "#60a5fa" },
               { text: "🎓 UET Lahore", x: 70, y: 100, color: "#a78bfa" },
             ].map((chip, i) => (
               <div
