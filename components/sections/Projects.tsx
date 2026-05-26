@@ -6,7 +6,7 @@ import { SectionHeader } from "../ui/SectionHeader";
 import { StarField } from "../ui/StarField";
 
 export function Projects() {
-  const [selected, setSelected] = useState(null);
+  const [selected, setSelected] = useState<number | null>(null);
 
   const projects = [
     {
