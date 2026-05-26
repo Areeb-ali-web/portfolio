@@ -118,9 +118,9 @@ export function Experience() {
                     margin: 0
                   }}
                 >
-                  <div style={{ display: "flex", gap: "14px", alignItems: "flex-start", flexDirection: { xs: "column", sm: "row" } }}>
+                  <div style={{ display: "flex", gap: "14px", alignItems: "flex-start", flexDirection: "row" }}>
                     <div style={{ fontSize: "32px", flexShrink: 0 }}>{exp.icon}</div>
-                    <div style={{ flex: 1, width: "100%" }}>
+                    <div style={{ flex: 1 }}>
                       <h4 style={{ color: "#fff", fontWeight: 700, fontSize: "clamp(16px, 4vw, 17px)", margin: 0 }}>{exp.role}</h4>
                       <p style={{ color: exp.color, fontSize: "13px", fontWeight: 600, margin: "3px 0 0" }}>{exp.company}</p>
                       <p style={{ color: "#475569", fontSize: "12px", margin: "2px 0 0" }}>{exp.companyFull}</p>
@@ -169,7 +169,7 @@ export function Experience() {
               style={{ borderRadius: 16 }}
             >
               <FloatingCard glowColor="rgba(167,139,250,0.15)" style={{ margin: 0 }}>
-                <div style={{ display: "flex", gap: "14px", flexDirection: { xs: "column", sm: "row" } }}>
+                <div style={{ display: "flex", gap: "14px", flexDirection: "row" }}>
                   <span style={{ fontSize: "32px" }}>🌱</span>
                   <div style={{ flex: 1 }}>
                     <h4 style={{ color: "#fff", fontWeight: 700, fontSize: "clamp(16px, 4vw, 18px)", margin: 0 }}>Currently Learning</h4>
@@ -195,7 +195,7 @@ export function Experience() {
             </ElectricBorder>
           </div>
 
-          {/* Right Column - Achievements with ElectricBorder for top achievement */}
+          {/* Right Column - Achievements */}
           <div>
             <h3 style={{ 
               color: "#fff", 
@@ -218,96 +218,43 @@ export function Experience() {
             </h3>
 
             {achievements.map((a, i) => (
-              // Apply ElectricBorder to the first achievement only for emphasis
-              i === 0 ? (
-             
-                  <div
-                    style={{
-                      background: "rgba(255,255,255,0.025)",
-                      border: "1px solid rgba(255,255,255,0.06)",
-                      borderLeft: `3px solid ${a.color}`,
-                      borderRadius: "0 14px 14px 0",
-                      padding: "clamp(12px, 4vw, 16px) clamp(16px, 4vw, 20px)",
-                      transition: "all 0.2s",
-                      cursor: "pointer",
-                    }}
-                  >
-                    <div style={{ display: "flex", alignItems: "flex-start", gap: "12px", flexDirection: { xs: "column", sm: "row" } }}>
-                      <span style={{ fontSize: "clamp(20px, 5vw, 24px)", flexShrink: 0 }}>{a.icon}</span>
-                      <div style={{ flex: 1 }}>
-                        <div style={{ 
-                          display: "flex", 
-                          alignItems: "center", 
-                          gap: "10px", 
-                          marginBottom: "4px", 
-                          flexWrap: "wrap",
-                          flexDirection: { xs: "column", sm: "row" },
-                          alignItems: { xs: "flex-start", sm: "center" }
-                        }}>
-                          <h4 style={{ color: "#fff", fontWeight: 700, fontSize: "clamp(14px, 4vw, 15px)", margin: 0 }}>{a.title}</h4>
-                          <Badge color="purple">{a.year}</Badge>
-                        </div>
-                        <p style={{ color: a.color, fontSize: "12px", fontWeight: 600, margin: "0 0 6px" }}>{a.org}</p>
-                        <p style={{ color: "#64748b", fontSize: "clamp(12px, 3.5vw, 13px)", lineHeight: 1.6, margin: 0 }}>{a.desc}</p>
-                      </div>
+              <div
+                key={i}
+                style={{
+                  background: "rgba(255,255,255,0.025)",
+                  border: "1px solid rgba(255,255,255,0.06)",
+                  borderLeft: `3px solid ${a.color}`,
+                  borderRadius: "0 14px 14px 0",
+                  padding: "clamp(12px, 4vw, 16px) clamp(16px, 4vw, 20px)",
+                  marginBottom: 14,
+                  transition: "all 0.2s",
+                  cursor: "pointer",
+                }}
+              >
+                <div style={{ display: "flex", alignItems: "flex-start", gap: "12px", flexDirection: "row" }}>
+                  <span style={{ fontSize: "clamp(20px, 5vw, 24px)", flexShrink: 0 }}>{a.icon}</span>
+                  <div style={{ flex: 1 }}>
+                    <div style={{ 
+                      display: "flex", 
+                      alignItems: "center", 
+                      gap: "10px", 
+                      marginBottom: "4px", 
+                      flexWrap: "wrap",
+                      flexDirection: "row",
+                      alignItems: "center"
+                    }}>
+                      <h4 style={{ color: "#fff", fontWeight: 700, fontSize: "clamp(14px, 4vw, 15px)", margin: 0 }}>{a.title}</h4>
+                      <Badge color="purple">{a.year}</Badge>
                     </div>
-                  </div>
-               
-              ) : (
-                <div
-                  key={i}
-                  style={{
-                    background: "rgba(255,255,255,0.025)",
-                    border: "1px solid rgba(255,255,255,0.06)",
-                    borderLeft: `3px solid ${a.color}`,
-                    borderRadius: "0 14px 14px 0",
-                    padding: "clamp(12px, 4vw, 16px) clamp(16px, 4vw, 20px)",
-                    marginBottom: 14,
-                    transition: "all 0.2s",
-                    cursor: "pointer",
-                  }}
-                >
-                  <div style={{ display: "flex", alignItems: "flex-start", gap: "12px", flexDirection: { xs: "column", sm: "row" } }}>
-                    <span style={{ fontSize: "clamp(20px, 5vw, 24px)", flexShrink: 0 }}>{a.icon}</span>
-                    <div style={{ flex: 1 }}>
-                      <div style={{ 
-                        display: "flex", 
-                        alignItems: "center", 
-                        gap: "10px", 
-                        marginBottom: "4px", 
-                        flexWrap: "wrap",
-                        flexDirection: { xs: "column", sm: "row" },
-                        alignItems: { xs: "flex-start", sm: "center" }
-                      }}>
-                        <h4 style={{ color: "#fff", fontWeight: 700, fontSize: "clamp(14px, 4vw, 15px)", margin: 0 }}>{a.title}</h4>
-                        <Badge color="purple">{a.year}</Badge>
-                      </div>
-                      <p style={{ color: a.color, fontSize: "12px", fontWeight: 600, margin: "0 0 6px" }}>{a.org}</p>
-                      <p style={{ color: "#64748b", fontSize: "clamp(12px, 3.5vw, 13px)", lineHeight: 1.6, margin: 0 }}>{a.desc}</p>
-                    </div>
+                    <p style={{ color: a.color, fontSize: "12px", fontWeight: 600, margin: "0 0 6px" }}>{a.org}</p>
+                    <p style={{ color: "#64748b", fontSize: "clamp(12px, 3.5vw, 13px)", lineHeight: 1.6, margin: 0 }}>{a.desc}</p>
                   </div>
                 </div>
-              )
+              </div>
             ))}
           </div>
         </div>
       </div>
-
-      {/* Responsive Styles */}
-      <style jsx>{`
-        @media (max-width: 768px) {
-          .floating-card {
-            margin: 0 8px 16px 8px;
-          }
-        }
-        
-        @media (max-width: 640px) {
-          .badge {
-            font-size: 10px;
-            padding: 2px 8px;
-          }
-        }
-      `}</style>
     </Section>
   );
 }
